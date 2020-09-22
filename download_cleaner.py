@@ -4,7 +4,7 @@
 
 import os          # we need os so we can move through the file system
 import shutil       # we need shell utilites so we can move files between folders
-import re            # we need Regular expressions to file and match all files types
+import re            # we need Regular expressions to find files and match all files types
 
 
 
@@ -30,7 +30,7 @@ regex_pkgs = re.compile(r".*?\.pkg", re.IGNORECASE)
 
 regexList = [regexPics, regexPDF, regexMovies, regexWordDocs, regexOther, regex_pkgs]
 
-fileStringTypes = 'pictures', 'PDF', 'Movies', 'WordDocs', 'Other', 'Packages'         # we need to multiple assigment so we can add the files to the correct folder
+fileStringTypes = 'pictures', 'PDF', 'Movies', 'WordDocs', 'Other', 'Packages'         # we need to use multiple assigment so we can add the files to the correct folder
 
 
 def filesToMatch(regex, stringFileType):                    # this function needs one of the complied matches and one of the assigned stings
@@ -44,5 +44,5 @@ def filesToMatch(regex, stringFileType):                    # this function need
 
 
 for _ in range(0,len(fileStringTypes)):
-    makeDir(fileStringTypes[_])                             # make all reges into a list so we can cycle throught it
+    makeDir(fileStringTypes[_])                             # make all regexs into a list so we can cycle throught it
     filesToMatch(regexList[_], fileStringTypes[_])
